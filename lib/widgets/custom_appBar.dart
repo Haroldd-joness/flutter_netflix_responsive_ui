@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_netflix_responsive_ui/assets.dart';
-import 'package:flutter_netflix_responsive_ui/constants/constants.dart';
+import 'package:netflix_clone/assets.dart';
+import 'package:netflix_clone/constants/constants.dart';
 
 class CustomAppBar extends StatelessWidget {
   final double scrollOffSet;

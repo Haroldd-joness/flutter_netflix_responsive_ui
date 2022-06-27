@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_netflix_responsive_ui/splash_screen.dart';
+import 'package:netflix_clone/splash_screen.dart';
 
 void main() {
   runApp(MyApp());

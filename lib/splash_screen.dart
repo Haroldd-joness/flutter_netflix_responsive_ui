@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_netflix_responsive_ui/main.dart';
+import 'package:netflix_clone/main.dart';
 import 'package:lottie/lottie.dart';
 
 import 'screens/home_screen.dart';

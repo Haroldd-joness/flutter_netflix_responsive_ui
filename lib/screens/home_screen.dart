@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_netflix_responsive_ui/constants/constants.dart';
-import 'package:flutter_netflix_responsive_ui/widgets/custom_appBar.dart';
+import 'package:netflix_clone/constants/constants.dart';
+import 'package:netflix_clone/widgets/custom_appBar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
