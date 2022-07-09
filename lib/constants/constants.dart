@@ -12,6 +12,13 @@ const kAppBarText = TextStyle(
     fontSize: 16.0,
     fontWeight: FontWeight.w500,
     color: kTextColor,
-  
 );
-
+const kEditText = TextStyle(
+    fontSize: 16.0,
+    fontWeight: FontWeight.w800,
+    color: kTextColor,
+);
+///buttonText
+const kButtonText = TextStyle(
+    color: kTextColor, fontWeight: FontWeight.w600
+);

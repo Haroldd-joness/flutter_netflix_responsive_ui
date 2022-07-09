@@ -10,7 +10,7 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 24.0),
-      color: Colors.black.withOpacity((scrollOffSet / 350).clamp(0, 1).toDouble()),
+      color: Colors.black  .withOpacity((scrollOffSet / 350).clamp(0, 1).toDouble()),
       child: SafeArea(
         child: Row(
           children: [
@@ -33,6 +33,41 @@ class CustomAppBar extends StatelessWidget {
     );
   }
 }
+
+///users
+class UserAppBar extends StatelessWidget {
+  const UserAppBar({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 24.0),
+      child: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+           // SizedBox(width: 110.0),
+            Text('Who\'s Watching?', style: kAppBarText),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () => print('Edit clicked'),
+                    child: Text('Edit', style: kEditText),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+
+      ),
+    );
+  }
+}
+
+
 class _AppBarButton extends StatelessWidget {
   final String title;
   final Function onTap;
@@ -51,3 +86,4 @@ class _AppBarButton extends StatelessWidget {
     );
   }
 }
+

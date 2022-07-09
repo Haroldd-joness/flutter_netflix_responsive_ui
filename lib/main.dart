@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/splash_screen.dart';
+import 'package:netflix_clone/screens/home_screen.dart';
+import 'package:netflix_clone/screens/splash_screen.dart';
+import 'package:netflix_clone/screens/users.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +18,14 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.black
       ),
-      home: Splash(),
+      //home: Splash(),
+      initialRoute: '/',
+
+      routes: {
+        '/': (context) => Splash(),
+        '/users': (context) => Users(),
+        '/HomeScreen': (context) => HomeScreen()
+      },
     );
   }
 }

@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:netflix_clone/main.dart';
 import 'package:lottie/lottie.dart';
 
-import 'screens/home_screen.dart';
+import 'home_screen.dart';
 
 class Splash extends StatefulWidget {
-  ///const Splash({Key? key}) : super(key: key);
+  const Splash({Key key}) : super(key: key);
 
   @override
   State<Splash> createState() => _SplashState();
@@ -19,14 +19,15 @@ class _SplashState extends State<Splash> {
     super.initState();
     Timer(
         Duration(seconds: 5),
-        () => Navigator.pushReplacement(
-              context,
-              (MaterialPageRoute(
-                builder: (context) => HomeScreen(),
-              )),
-            ));
+        () => Navigator.pushReplacementNamed(context, '/users'),
+    );
   }
-
+  // Navigator.pushReplacement(
+  // context,
+  // (MaterialPageRoute(
+  // builder: (context) => HomeScreen(),
+  // )),
+  // )
   @override
   Widget build(BuildContext context) {
     return Container(
