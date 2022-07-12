@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/screens/home_screen.dart';
+import 'package:netflix_clone/screens/navigation_screen.dart';
 import 'package:netflix_clone/screens/splash_screen.dart';
 import 'package:netflix_clone/screens/users.dart';
 
@@ -14,20 +15,18 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Netflix UI',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: Colors.black
-      ),
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          scaffoldBackgroundColor: Colors.black),
       //home: Splash(),
       initialRoute: '/',
 
       routes: {
         '/': (context) => Splash(),
         '/users': (context) => Users(),
-        '/HomeScreen': (context) => HomeScreen()
+        //'/NavScreen': (context) => NavScreen()
+        '/HomeScreen': (context) => NavScreen()
       },
     );
   }
 }
-
-
