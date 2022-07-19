@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/assets.dart';
 import 'package:netflix_clone/models/models.dart';
+import 'package:tmdb_api/tmdb_api.dart';
 
 final Content sintelContent = Content(
   name: 'Sintel',
@@ -11,7 +12,12 @@ final Content sintelContent = Content(
       'A lonely young woman, Sintel, helps and befriends a dragon,\nwhom she calls Scales. But when he is kidnapped by an adult\ndragon, Sintel decides to embark on a dangerous quest to find\nher lost friend Scales.',
 );
 
-
+final Content torontoContent = Content(
+  name: 'Man From Toronto',
+  imageUrl: Assets.toronto,
+  description:
+      'In a case of mistaken identity, the world’s deadliest assassin, known as the Man from Toronto, and a New York City screw-up are forced to team up after being confused for each other at an Airbnb.',
+);
 
 final List<Content> previews = const [
   Content(
@@ -77,6 +83,7 @@ final List<Content> previews = const [
 ];
 
 final List<Content> myList = const [
+  Content(name: 'The Man From Toronto', imageUrl: Assets.toronto),
   Content(name: 'Violet Evergarden', imageUrl: Assets.violetEvergarden),
   Content(name: 'How to Sell Drugs Online (Fast)', imageUrl: Assets.htsdof),
   Content(name: 'Kakegurui', imageUrl: Assets.kakegurui),
@@ -102,7 +109,7 @@ final List<Content> originals = const [
   Content(name: 'The End of the F***ing World', imageUrl: Assets.teotfw),
 ];
 
-final List<Content> trending = const [
+final List<Content> trending = [
   Content(name: 'Explained', imageUrl: Assets.explained),
   Content(name: 'Avatar The Last Airbender', imageUrl: Assets.atla),
   Content(name: 'Tiger King', imageUrl: Assets.tigerKing),

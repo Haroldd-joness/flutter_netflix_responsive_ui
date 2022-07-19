@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/data/data.dart';
 import 'package:netflix_clone/models/models.dart';
+import 'package:netflix_clone/Screens/home_screen.dart';
+import 'package:tmdb_api/tmdb_api.dart';
 
 import '../constants/constants.dart';
 
@@ -21,7 +24,7 @@ class ContentList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 6.0),
+          padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 24.0),
           child: Text(title, style: kPreviewText),
         ),
 
@@ -42,7 +45,7 @@ class ContentList extends StatelessWidget {
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 8.0),
 
-                  ///check the sizes(if  is big set 400px else 200px
+                  ///check the sizes(if is big set 400px else 200px
                   width: isOrginals ? 400.0 : 150.0,
                   height: isOrginals ? 200.0 : 130,
                   decoration: BoxDecoration(

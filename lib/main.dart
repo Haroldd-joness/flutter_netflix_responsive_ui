@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:netflix_clone/screens/home_screen.dart';
 import 'package:netflix_clone/screens/navigation_screen.dart';
 import 'package:netflix_clone/screens/splash_screen.dart';
