@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
+import 'package:netflix_clone/screens/description.dart';
+import 'package:animated_page_transition/animated_page_transition.dart';
 
 class TrendingMovies extends StatelessWidget {
   final List trending;
@@ -29,7 +31,21 @@ class TrendingMovies extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 ///remember to add onTap functionalities (toast)
                 return GestureDetector(
-                  onTap: () => print('desc'),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (content) => Description(
+                        name: trending[index]['title'],
+                        bannerUrl: 'https://image.tmdb.org/t/p/w500' +
+                            trending[index]['backdrop_path'],
+                        posterUrl: 'https://image.tmdb.org/t/p/w500' +
+                            trending[index]['poster_path'],
+                        description: trending[index]['overview'],
+                        rating: trending[index]['vote_average'].toString(),
+                        releaseDate: trending[index]['release_date'],
+                      ),
+                    ),
+                  ),
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 4.0),
                     width: 120.0,

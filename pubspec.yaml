@@ -33,6 +33,7 @@ dependencies:
   internet_connection_checker: ^0.0.1+4
   overlay_support: ^2.0.1
   tmdb_api: ^2.1.2
+  animated_page_transition: ^0.0.1+2
 
 dev_dependencies:
   flutter_test:

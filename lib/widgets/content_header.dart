@@ -45,24 +45,21 @@ class ContentHeader extends StatelessWidget {
         Positioned(
           left: 0,
           right: 0,
-          bottom: 40.0,
+          bottom: 20.0,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               VerticalIconButton(
                 icon: Icons.add,
                 title: 'My List',
-                onTap: () => print('My List'),
               ),
               SquareButton(
                 icon: Icons.play_arrow,
                 title: 'Play',
-                onPressed: () => print('Play'),
               ),
               VerticalIconButton(
                 icon: Icons.info_outline,
                 title: 'Info',
-                onTap: () => print('Info'),
               ),
             ],
           ),

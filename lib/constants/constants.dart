@@ -31,3 +31,5 @@ const kNavText = TextStyle(
 
 ///buttonText
 const kButtonText = TextStyle(color: kTextColor, fontWeight: FontWeight.w600);
+const kPlayButtonText =
+    TextStyle(color: kBackground, fontWeight: FontWeight.w600);

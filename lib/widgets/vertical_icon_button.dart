@@ -19,12 +19,13 @@ class VerticalIconButton extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
-          Icon(icon, color: kTextColor),
-          SizedBox(height: 2.0),
-          Text(
-            title,
-            style: kButtonText
-          )
+          Icon(
+            icon,
+            color: kTextColor,
+            size: 28,
+          ),
+          SizedBox(height: 6.0),
+          Text(title, style: kButtonText)
         ],
       ),
     );
@@ -36,16 +37,28 @@ class SquareButton extends StatelessWidget {
   final String title;
   final Function onPressed;
 
-  const SquareButton({Key key,@required this.icon, @required this.title, @required this.onPressed}) : super(key: key);
+  const SquareButton(
+      {Key key,
+      @required this.icon,
+      @required this.title,
+      @required this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(primary: Colors.white),
       onPressed: onPressed,
       child: Row(
         children: [
-          Icon(icon),
-          Text(title)
+          Icon(icon, size: 28, color: kBackground),
+          SizedBox(
+            width: 5,
+          ),
+          Text(
+            title,
+            style: kPlayButtonText,
+          )
         ],
       ),
     );
