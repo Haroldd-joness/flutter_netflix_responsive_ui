@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
-import 'package:netflix_clone/widgets/vertical_icon_button.dart';
+import 'package:netflix_clone/widgets/buttons.dart';
 
 import '../models/content_model.dart';
 
@@ -20,19 +20,22 @@ class ContentHeader extends StatelessWidget {
         Container(
           height: 500.0,
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(
-                    featuredContent.imageUrl,
-                  ),
-                  fit: BoxFit.cover)),
+            image: DecorationImage(
+              image: AssetImage(
+                featuredContent.imageUrl,
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
         Container(
-          height: 500.0,
+          height: 550.0,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: [kBackground, Colors.transparent],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter),
+              colors: [kBackground, Colors.transparent],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+            ),
           ),
         ),
         Positioned(
@@ -43,25 +46,59 @@ class ContentHeader extends StatelessWidget {
           ),
         ),
         Positioned(
+            bottom: 90.0,
+            child: Container(
+              child: Row(
+                children: [
+                  Text(
+                    "Action • ",
+                    style: kSubTexts,
+                  ),
+                  Text(
+                    "Drama • ",
+                    style: kSubTexts,
+                  ),
+                  Text(
+                    "Animate • ",
+                    style: kSubTexts,
+                  ),
+                  Text(
+                    "Makeover • ",
+                    style: kSubTexts,
+                  ),
+                  Text(
+                    "Kids ",
+                    style: kSubTexts,
+                  ),
+                ],
+              ),
+            )),
+        Positioned(
           left: 0,
           right: 0,
-          bottom: 20.0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              VerticalIconButton(
-                icon: Icons.add,
-                title: 'My List',
-              ),
-              SquareButton(
-                icon: Icons.play_arrow,
-                title: 'Play',
-              ),
-              VerticalIconButton(
-                icon: Icons.info_outline,
-                title: 'Info',
-              ),
-            ],
+          bottom: 0.0,
+          child: Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ButtonIcon(
+                  icon: Icons.add,
+                  title: 'My List',
+                ),
+                SquareButton(
+                  icon: Icons.play_arrow,
+                  title: 'Play',
+                  width: 100,
+                  height: 40,
+                  color: Colors.white,
+                ),
+                ButtonIcon(
+                  icon: Icons.info_outline,
+                  title: 'Info',
+                ),
+              ],
+            ),
           ),
         )
       ],

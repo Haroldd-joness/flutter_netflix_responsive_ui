@@ -1,12 +1,14 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
 
-class VerticalIconButton extends StatelessWidget {
+class ButtonIcon extends StatelessWidget {
   final IconData icon;
   final String title;
   final Function onTap;
 
-  const VerticalIconButton({
+  const ButtonIcon({
     Key key,
     @required this.icon,
     @required this.title,
@@ -25,41 +27,56 @@ class VerticalIconButton extends StatelessWidget {
             size: 28,
           ),
           SizedBox(height: 6.0),
-          Text(title, style: kButtonText)
+          Text(title, style: kSubTexts)
         ],
       ),
     );
   }
 }
 
+///play button
 class SquareButton extends StatelessWidget {
   final IconData icon;
   final String title;
   final Function onPressed;
+  final Color color;
+  final double height;
+  final double width;
 
   const SquareButton(
       {Key key,
       @required this.icon,
       @required this.title,
-      @required this.onPressed})
+      this.onPressed,
+      this.height,
+      this.width,
+      this.color})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(primary: Colors.white),
-      onPressed: onPressed,
-      child: Row(
-        children: [
-          Icon(icon, size: 28, color: kBackground),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            title,
-            style: kPlayButtonText,
-          )
-        ],
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(3),
+          color: color,
+        ),
+        height: height,
+        width: width,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 28, color: kBackground),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              title,
+              style: kPlayButtonText,
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
 
+import '../screens/description.dart';
+
 ///toprated
 class TopRated extends StatelessWidget {
   final List topRated;
@@ -18,7 +20,7 @@ class TopRated extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 24.0),
             child: Text(
               name,
-              style: kPreviewText,
+              style: kHeadingText,
             ),
           ),
           Container(
@@ -30,7 +32,21 @@ class TopRated extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 ///remember to add onTap functionalities (toast)
                 return GestureDetector(
-                  onTap: () => print('desc'),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (content) => Description(
+                        name: topRated[index]['title'],
+                        bannerUrl: 'https://image.tmdb.org/t/p/w500' +
+                            topRated[index]['backdrop_path'],
+                        posterUrl: 'https://image.tmdb.org/t/p/w500' +
+                            topRated[index]['poster_path'],
+                        description: topRated[index]['overview'],
+                        rating: topRated[index]['vote_average'].toString(),
+                        releaseDate: topRated[index]['release_date'],
+                      ),
+                    ),
+                  ),
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 4.0),
                     width: 120.0,
@@ -72,7 +88,7 @@ class ComingSoon extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 24.0),
             child: Text(
               name,
-              style: kPreviewText,
+              style: kHeadingText,
             ),
           ),
           Container(
@@ -126,7 +142,7 @@ class TVShows extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 24.0),
             child: Text(
               name,
-              style: kPreviewText,
+              style: kHeadingText,
             ),
           ),
           Container(

@@ -17,11 +17,11 @@ class _NavScreenState extends State<NavScreen> {
   ];
 
   final Map<String, IconData> _icons = const {
-    'Home': Icons.home,
-    'Search': Icons.search,
-    'Coming Soon': Icons.queue_play_next,
-    'Downloads': Icons.file_download,
-    'Menu': Icons.menu,
+    'Home': Icons.home_rounded,
+    'Search': Icons.search_rounded,
+    'Coming Soon': Icons.queue_play_next_rounded,
+    'Downloads': Icons.download_for_offline_outlined,
+    'Menu': Icons.menu_rounded,
   };
 
   ///setting screen to render

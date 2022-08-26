@@ -19,7 +19,7 @@ class TrendingMovies extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 24.0),
             child: Text(
               name,
-              style: kPreviewText,
+              style: kHeadingText,
             ),
           ),
           Container(

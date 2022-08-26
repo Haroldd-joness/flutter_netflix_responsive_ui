@@ -34,6 +34,7 @@ dependencies:
   overlay_support: ^2.0.1
   tmdb_api: ^2.1.2
   animated_page_transition: ^0.0.1+2
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:

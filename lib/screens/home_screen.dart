@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.only(top: 20.0),
+            padding: EdgeInsets.only(top: 8.0),
             sliver: SliverToBoxAdapter(
               child: Previews(
                 key: PageStorageKey('Previews'),

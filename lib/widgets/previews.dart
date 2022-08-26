@@ -20,7 +20,7 @@ class Previews extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: Text(title, style: kPreviewText),
+          child: Text(title, style: kHeadingText),
         ),
         Container(
           height: 165.0,

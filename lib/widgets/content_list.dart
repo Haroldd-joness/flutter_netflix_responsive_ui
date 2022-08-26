@@ -25,7 +25,7 @@ class ContentList extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 24.0),
-          child: Text(title, style: kPreviewText),
+          child: Text(title, style: kHeadingText),
         ),
 
         ///check the image sizes(if the image is big set 500px else 220px
