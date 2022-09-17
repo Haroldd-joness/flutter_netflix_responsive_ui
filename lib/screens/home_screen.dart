@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
 import 'package:netflix_clone/data/data.dart';
-import 'package:netflix_clone/widgets/custom_appBar.dart';
 import 'package:netflix_clone/widgets/widgets.dart';
 import 'package:tmdb_api/tmdb_api.dart';
-
-import '../widgets/content_header.dart';
-import '../widgets/content_list.dart';
-import '../widgets/previews.dart';
-import '../widgets/trending.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -49,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List topRated = [];
   List tvShows = [];
   List upComing = [];
+  List video = [];
 
   ///fetches data from the tmdb api
   fetchMovies() async {
@@ -72,7 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
       upComing = upComingResult['results'];
     });
 
-    print(trendingMovies);
+    ///test print
+    print(upComingResult);
   }
 
   @override

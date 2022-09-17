@@ -40,14 +40,14 @@ const kNavText = TextStyle(
 
 ///movie title text
 const kMovieTitle = TextStyle(
-  fontSize: 30.0,
+  fontSize: 23.0,
   fontWeight: FontWeight.w600,
   color: kTextColor,
 );
 
 ///movie description
 const kMovieDesc = TextStyle(
-  fontSize: 15.0,
+  fontSize: 16.5,
   color: kTextColor,
   height: 1.4,
 );

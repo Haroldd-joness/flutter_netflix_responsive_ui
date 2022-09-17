@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
 import 'package:netflix_clone/widgets/buttons.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 
 class Description extends StatelessWidget {
-  final String name, description, bannerUrl, posterUrl, rating, releaseDate;
+  final String name,
+      description,
+      bannerUrl,
+      posterUrl,
+      rating,
+      releaseDate,
+      genre,
+      trailer;
 
-  const Description({
-    Key key,
-    this.name,
-    this.description,
-    this.bannerUrl,
-    this.releaseDate,
-    this.posterUrl,
-    this.rating,
-  }) : super(key: key);
+  const Description(
+      {Key key,
+      this.name,
+      this.description,
+      this.bannerUrl,
+      this.releaseDate,
+      this.posterUrl,
+      this.rating,
+      this.trailer,
+      this.genre})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,34 +32,52 @@ class Description extends StatelessWidget {
       body: Container(
         child: ListView(
           children: [
+            Shimmer(
+              duration: Duration(seconds: 5),
+              interval: Duration(seconds: 0),
+              color: Colors.white,
+              colorOpacity: 0.3,
+              enabled: true,
+              direction: ShimmerDirection.fromLBRT(),
+              child: Container(
+                height: 450,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.network(
+                    bannerUrl,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
             Container(
-                height: 250,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      child: Container(
-                        height: 250,
-                        width: MediaQuery.of(context).size.width,
-                        child: Image.network(
-                          bannerUrl,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                )),
-            Container(
-              margin: EdgeInsets.all(5),
+              margin: EdgeInsets.all(15),
               child: Text(
-                name != null ? name : "Name unavailable",
+                name != null ? name : "Loading",
                 style: kMovieTitle,
               ),
             ),
             Container(
-              margin: EdgeInsets.all(5),
+              margin: EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                 children: [
-                  Text("⭐ Average Rating - " + rating, style: kSubTexts),
+                  Text("⭐ " + rating, style: kSubTexts),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        color: Colors.white70,
+                        width: 50.0,
+                        height: 20,
+                        child: Text(
+                          "Action",
+                          style: kSubTexts,
+                        ),
+                      ),
+                    ],
+                  ),
                   SizedBox(
                     width: 10,
                   ),
@@ -59,59 +87,57 @@ class Description extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            SquareButton(
-              icon: Icons.play_arrow,
-              title: 'Play',
-              color: Colors.white,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            SquareButton(
-              icon: Icons.arrow_circle_down,
-              title: 'Download',
-              width: 10.0,
-              color: Colors.white30,
-            ),
-            // Container(
-            //   margin: EdgeInsets.all(5),
-            //   child: Text(
-            //     "Overview",
-            //     style: kHeadingText,
-            //   ),
-            // ),
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(5),
-                  width: 100,
-                  height: 200,
-                  child: Image.network(
-                    posterUrl,
-                  ),
-                ),
-                Container(
-                  child: Flexible(
-                    child: Text(
-                      description,
-                      textAlign: TextAlign.justify,
-                      style: kMovieDesc,
-                    ),
-                  ),
-                ),
-              ],
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              child: SquareButton(
+                onPressed: () => 'Playing',
+                icon: Icons.play_arrow,
+                title: 'Play',
+                color: Colors.white,
+                height: 45,
+                width: MediaQuery.of(context).size.width,
+              ),
             ),
             Container(
-              margin: EdgeInsets.all(5),
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              child: SquareButton(
+                onPressed: () => 'downloading',
+                icon: Icons.arrow_circle_down,
+                title: 'Download',
+                color: Colors.white70,
+                height: 45,
+                width: MediaQuery.of(context).size.width,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              child: Text(
+                "Story Line",
+                style: kHeadingText,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+              child: Text(
+                description,
+                //textAlign: TextAlign.justify,
+                style: kMovieDesc,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
               child: Text(
                 "Release Date: " + releaseDate,
                 style: kHeadingText,
               ),
             ),
             Container(
-              margin: EdgeInsets.all(5),
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
               child: Text(
-                "Cast",
+                "Casts",
                 style: kHeadingText,
               ),
             ),

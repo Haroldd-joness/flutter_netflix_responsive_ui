@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
 import 'package:netflix_clone/screens/description.dart';
 import 'package:animated_page_transition/animated_page_transition.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 
 class TrendingMovies extends StatelessWidget {
   final List trending;
   final String name;
+  final String genre;
 
-  const TrendingMovies({Key key, this.trending, this.name}) : super(key: key);
+  const TrendingMovies({Key key, this.trending, this.name, this.genre})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,18 +49,26 @@ class TrendingMovies extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 4.0),
-                    width: 120.0,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          'https://image.tmdb.org/t/p/w500' +
-                              trending[index]['poster_path'],
+                  child: Shimmer(
+                    duration: Duration(seconds: 5),
+                    interval: Duration(seconds: 0),
+                    color: Colors.white,
+                    colorOpacity: 0,
+                    enabled: true,
+                    direction: ShimmerDirection.fromLBRT(),
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 4.0),
+                      width: 120.0,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://image.tmdb.org/t/p/w500' +
+                                trending[index]['poster_path'],
+                          ),
+                          fit: BoxFit.cover,
                         ),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
