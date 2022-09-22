@@ -10,20 +10,18 @@ class Description extends StatelessWidget {
       posterUrl,
       rating,
       releaseDate,
-      genre,
       trailer;
 
-  const Description(
-      {Key key,
-      this.name,
-      this.description,
-      this.bannerUrl,
-      this.releaseDate,
-      this.posterUrl,
-      this.rating,
-      this.trailer,
-      this.genre})
-      : super(key: key);
+  const Description({
+    Key key,
+    this.name,
+    this.description,
+    this.bannerUrl,
+    this.releaseDate,
+    this.posterUrl,
+    this.rating,
+    this.trailer,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +38,7 @@ class Description extends StatelessWidget {
               enabled: true,
               direction: ShimmerDirection.fromLBRT(),
               child: Container(
-                height: 450,
+                height: 400,
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   child: Image.network(
@@ -64,19 +62,6 @@ class Description extends StatelessWidget {
                   Text("⭐ " + rating, style: kSubTexts),
                   SizedBox(
                     width: 20,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        color: Colors.white70,
-                        width: 50.0,
-                        height: 20,
-                        child: Text(
-                          "Action",
-                          style: kSubTexts,
-                        ),
-                      ),
-                    ],
                   ),
                   SizedBox(
                     width: 10,

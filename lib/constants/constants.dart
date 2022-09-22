@@ -31,6 +31,16 @@ const kSubTexts = TextStyle(
   color: kTextColor,
 );
 
+///userScreen
+const kUserHeading =
+    TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, color: Colors.white);
+
+const kUserDesc = TextStyle(
+  fontSize: 17.0,
+  color: Colors.white70,
+  letterSpacing: 0.3,
+);
+
 ///Navigation
 const kNavText = TextStyle(
   fontSize: 11.0,

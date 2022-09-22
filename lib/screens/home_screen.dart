@@ -120,9 +120,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(bottom: 5.0),
             sliver: SliverToBoxAdapter(
               child: TopRated(
-                key: PageStorageKey('TopRated'),
+                key: PageStorageKey('TopRatedMovies'),
                 topRated: topRated,
-                name: 'Top Rated',
+                name: 'Top Rated Movies',
               ),
             ),
           ),
@@ -132,9 +132,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(bottom: 5.0),
             sliver: SliverToBoxAdapter(
               child: ComingSoon(
-                key: PageStorageKey('ComingSoon'),
+                key: PageStorageKey('UpComingMovies'),
                 upComing: upComing,
-                name: 'Coming Soon',
+                name: 'UpComing Movies',
               ),
             ),
           ),
@@ -152,9 +152,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(bottom: 5.0),
             sliver: SliverToBoxAdapter(
               child: TVShows(
-                key: PageStorageKey('TVShows'),
+                key: PageStorageKey('PopularTVShows'),
                 tvShows: tvShows,
-                name: 'TV Shows',
+                name: 'Popular TV Shows',
               ),
             ),
           ),

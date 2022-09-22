@@ -7,10 +7,12 @@ import 'package:shimmer_animation/shimmer_animation.dart';
 class TrendingMovies extends StatelessWidget {
   final List trending;
   final String name;
-  final String genre;
 
-  const TrendingMovies({Key key, this.trending, this.name, this.genre})
-      : super(key: key);
+  const TrendingMovies({
+    Key key,
+    this.trending,
+    this.name,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
