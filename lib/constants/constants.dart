@@ -23,6 +23,28 @@ const kHeadingText = TextStyle(
   fontSize: 20.0,
   fontWeight: FontWeight.bold,
   color: kTextColor,
+  fontFamily: "Montserrat-bold",
+);
+
+///onBOard
+const kOnBoardText = TextStyle(
+    fontSize: 15.0,
+    color: Colors.white70,
+    letterSpacing: 0.5,
+    fontFamily: "Montserrat-bold",
+    height: 1.5);
+
+const kOnBoardHead = TextStyle(
+  fontSize: 29.0,
+  color: Colors.white,
+  letterSpacing: 0.3,
+  fontWeight: FontWeight.bold,
+  fontFamily: "Montserrat-bold",
+);
+const kSignInText = TextStyle(
+  color: kTextColor,
+  fontSize: 20,
+  fontWeight: FontWeight.w600,
 );
 
 ///sub texts (small light)
@@ -32,35 +54,40 @@ const kSubTexts = TextStyle(
 );
 
 ///userScreen
-const kUserHeading =
-    TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, color: Colors.white);
+const kUserHeading = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+  fontFamily: "Montserrat-Bold",
+);
 
 const kUserDesc = TextStyle(
   fontSize: 17.0,
   color: Colors.white70,
   letterSpacing: 0.3,
+  fontFamily: "Montserrat-Medium",
 );
 
 ///Navigation
 const kNavText = TextStyle(
-  fontSize: 11.0,
-  fontWeight: FontWeight.bold,
-  color: kTextColor,
-);
+    fontSize: 11.0,
+    fontWeight: FontWeight.bold,
+    color: kTextColor,
+    fontFamily: "Montserrat-SemiBold");
 
 ///movie title text
 const kMovieTitle = TextStyle(
-  fontSize: 23.0,
-  fontWeight: FontWeight.w600,
-  color: kTextColor,
-);
+    fontSize: 23.0,
+    fontWeight: FontWeight.w600,
+    color: kTextColor,
+    fontFamily: "Montserrat-Medium");
 
 ///movie description
 const kMovieDesc = TextStyle(
-  fontSize: 16.5,
-  color: kTextColor,
-  height: 1.4,
-);
+    fontSize: 16.5,
+    color: kTextColor,
+    height: 1.4,
+    fontFamily: "Montserrat-SemiBold");
 
 ///buttonText
 const kButtonText = TextStyle(

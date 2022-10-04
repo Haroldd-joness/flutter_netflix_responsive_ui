@@ -18,16 +18,11 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 5),
-        () => Navigator.pushReplacementNamed(context, '/users'),
+      Duration(seconds: 5),
+      () => Navigator.pushReplacementNamed(context, '/onBoard'),
     );
   }
-  // Navigator.pushReplacement(
-  // context,
-  // (MaterialPageRoute(
-  // builder: (context) => HomeScreen(),
-  // )),
-  // )
+
   @override
   Widget build(BuildContext context) {
     return Container(

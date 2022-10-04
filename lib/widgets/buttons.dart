@@ -81,3 +81,44 @@ class SquareButton extends StatelessWidget {
     );
   }
 }
+
+///signin button
+class SignInButton extends StatelessWidget {
+  final String title;
+  final Function onPressed;
+  final double height;
+  final double width;
+  final Color color;
+  const SignInButton(
+      {Key key,
+      this.title,
+      this.onPressed,
+      this.height,
+      this.width,
+      this.color})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(3),
+          color: color,
+        ),
+        height: height,
+        width: width,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              style: kSignInText,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

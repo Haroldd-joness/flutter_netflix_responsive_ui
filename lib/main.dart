@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:netflix_clone/screens/home_screen.dart';
 import 'package:netflix_clone/screens/navigation_screen.dart';
+import 'package:netflix_clone/screens/on_boarding.dart';
 import 'package:netflix_clone/screens/splash_screen.dart';
 import 'package:netflix_clone/screens/users.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Splash(),
         '/users': (context) => Users(),
-        //'/NavScreen': (context) => NavScreen()
+        '/onBoard': (context) => OnBoardingScreen(),
         '/HomeScreen': (context) => NavScreen()
       },
     );

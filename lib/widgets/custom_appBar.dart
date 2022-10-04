@@ -44,18 +44,14 @@ class UserAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 24.0),
-      child: SafeArea(
-        child: Expanded(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              GestureDetector(
-                onTap: () => print('Edit clicked'),
-                child: Text(edit, style: kAppBarText),
-              ),
-            ],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          GestureDetector(
+            onTap: () => print('Edit clicked'),
+            child: Text(edit, style: kAppBarText),
           ),
-        ),
+        ],
       ),
     );
   }
