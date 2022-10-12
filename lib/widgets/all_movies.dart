@@ -231,3 +231,79 @@ class TVShows extends StatelessWidget {
     );
   }
 }
+
+///now playing
+class NowPlaying extends StatelessWidget {
+  final List nowPlaying;
+  final String name;
+  const NowPlaying({Key key, this.nowPlaying, this.name}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 24.0),
+            child: Text(
+              name,
+              style: kHeadingText,
+            ),
+          ),
+          Shimmer(
+            duration: Duration(seconds: 5),
+            interval: Duration(seconds: 0),
+            color: Colors.white,
+            colorOpacity: 0,
+            enabled: true,
+            direction: ShimmerDirection.fromLeftToRight(),
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+              height: 210.0,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: nowPlaying.length,
+                itemBuilder: (BuildContext context, int index) {
+                  ///remember to add onTap functionalities (toast)
+                  return GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (content) => Description(
+                          name: nowPlaying[index]['title'],
+                          bannerUrl: 'https://image.tmdb.org/t/p/w500' +
+                              nowPlaying[index]['backdrop_path'],
+                          posterUrl: 'https://image.tmdb.org/t/p/w500' +
+                              nowPlaying[index]['poster_path'],
+                          description: nowPlaying[index]['overview'],
+                          rating: nowPlaying[index]['vote_average'].toString(),
+                          releaseDate: nowPlaying[index]['release_date'],
+                        ),
+                      ),
+                    ),
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 4.0),
+                      width: 120.0,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://image.tmdb.org/t/p/w500' +
+                                nowPlaying[index]['poster_path'],
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

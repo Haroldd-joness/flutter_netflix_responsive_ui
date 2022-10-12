@@ -23,10 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ..addListener(() {
         setState(() {
           _scrollOffSet = _scrollController.offset;
-          fetchMovies();
         });
       });
     super.initState();
+    fetchMovies();
   }
 
   @override
@@ -43,7 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List topRated = [];
   List tvShows = [];
   List upComing = [];
-  List video = [];
+  List nowPlaying = [];
+  List previews = [];
 
   ///fetches data from the tmdb api
   fetchMovies() async {
@@ -55,9 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
     ///get the trending movies
     Map trendingResult = await tmdbWithCustomLogs.v3.trending.getTrending();
-    Map topRatedResult = await tmdbWithCustomLogs.v3.movies.getNowPlaying();
-    Map tvShowsResult = await tmdbWithCustomLogs.v3.tv.getPopular();
+    Map topRatedResult = await tmdbWithCustomLogs.v3.movies.getTopRated();
+    Map tvShowsResult = await tmdbWithCustomLogs.v3.tv.getAiringToday();
     Map upComingResult = await tmdbWithCustomLogs.v3.movies.getUpcoming();
+    Map nowPlayingResult = await tmdbWithCustomLogs.v3.movies.getNowPlaying();
+    Map previewResult = await tmdbWithCustomLogs.v3.tv.getPopular();
 
     ///setting state of movies(collection)
     setState(() {
@@ -65,6 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
       topRated = topRatedResult['results'];
       tvShows = tvShowsResult['results'];
       upComing = upComingResult['results'];
+      nowPlaying = nowPlayingResult['results'];
+      previews = previewResult['results'];
     });
 
     ///test print
@@ -99,21 +104,23 @@ class _HomeScreenState extends State<HomeScreen> {
               featuredContent: sintelContent,
             ),
           ),
+
+          ///change trending movies from previews
           SliverPadding(
             padding: EdgeInsets.only(top: 8.0),
             sliver: SliverToBoxAdapter(
-              child: Previews(
+              child: TrendingMovies(
                 key: PageStorageKey('Previews'),
-                title: 'Previews',
-                contentList: previews,
+                name: 'Previews',
+                trending: previews,
               ),
             ),
           ),
           SliverToBoxAdapter(
-            child: ContentList(
-              key: PageStorageKey('myList'),
-              title: 'My List',
-              contentList: myList,
+            child: NowPlaying(
+              key: PageStorageKey('Now Playing'),
+              nowPlaying: nowPlaying,
+              name: 'Now Playing',
             ),
           ),
           SliverPadding(
@@ -121,8 +128,8 @@ class _HomeScreenState extends State<HomeScreen> {
             sliver: SliverToBoxAdapter(
               child: TopRated(
                 key: PageStorageKey('TopRatedMovies'),
-                topRated: topRated,
                 name: 'Top Rated Movies',
+                topRated: topRated,
               ),
             ),
           ),
@@ -132,9 +139,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(bottom: 5.0),
             sliver: SliverToBoxAdapter(
               child: ComingSoon(
-                key: PageStorageKey('UpComingMovies'),
+                key: PageStorageKey('NewReleases'),
+                name: 'New Releases',
                 upComing: upComing,
-                name: 'UpComing Movies',
               ),
             ),
           ),
@@ -143,8 +150,8 @@ class _HomeScreenState extends State<HomeScreen> {
             sliver: SliverToBoxAdapter(
               child: TrendingMovies(
                 key: PageStorageKey('Trending'),
+                name: 'Trending Now',
                 trending: trendingMovies,
-                name: 'Trending',
               ),
             ),
           ),
@@ -152,9 +159,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(bottom: 5.0),
             sliver: SliverToBoxAdapter(
               child: TVShows(
-                key: PageStorageKey('PopularTVShows'),
+                key: PageStorageKey('Popular Series'),
                 tvShows: tvShows,
-                name: 'Popular TV Shows',
+                name: 'Popular Series',
               ),
             ),
           ),

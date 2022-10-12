@@ -1,97 +1,87 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
+import 'package:netflix_clone/screens/description.dart';
+import 'package:animated_page_transition/animated_page_transition.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 
-import '../models/content_model.dart';
+class PreviewMovies extends StatelessWidget {
+  final List preview;
+  final String name;
 
-class Previews extends StatelessWidget {
-  final String title;
-  final List<Content> contentList;
-
-  const Previews({
+  const PreviewMovies({
     Key key,
-    @required this.title,
-    @required this.contentList,
+    this.preview,
+    this.name,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: Text(title, style: kHeadingText),
-        ),
-        Container(
-          height: 165.0,
-          child: ListView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
-            scrollDirection: Axis.horizontal,
-            itemCount: contentList.length,
-            itemBuilder: (BuildContext context, int index) {
-              ///extract contents
-              final Content contents = contentList[index];
-              return GestureDetector(
-                ///remember to add toast widget to all the console print
-                onTap: () => print(contents.name),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 16.0),
-                      height: 130.0,
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 24.0),
+            child: Text(
+              name,
+              style: kHeadingText,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+            //height: 210,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: preview.length,
+              itemBuilder: (BuildContext context, int index) {
+                ///remember to add onTap functionalities (toast)
+                return GestureDetector(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (content) => Description(
+                        name: preview[index]['title'],
+                        bannerUrl: 'https://image.tmdb.org/t/p/w500' +
+                            preview[index]['backdrop_path'],
+                        posterUrl: 'https://image.tmdb.org/t/p/w500' +
+                            preview[index]['poster_path'],
+                        description: preview[index]['overview'],
+                        rating: preview[index]['vote_average'].toString(),
+                        releaseDate: preview[index]['release_date'],
+                      ),
+                    ),
+                  ),
+                  child: Shimmer(
+                    duration: Duration(seconds: 5),
+                    interval: Duration(seconds: 0),
+                    color: Colors.white,
+                    colorOpacity: 0,
+                    enabled: true,
+                    direction: ShimmerDirection.fromLBRT(),
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 4.0),
                       width: 130.0,
+                      height: 130.0,
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
                         image: DecorationImage(
-                          image: AssetImage(contents.imageUrl),
+                          image: NetworkImage(
+                            'https://image.tmdb.org/t/p/w500' +
+                                preview[index]['poster_path'],
+                          ),
                           fit: BoxFit.cover,
                         ),
-                        shape: BoxShape.circle,
-                        border: Border.all(color: contents.color, width: 4.0),
+                        //shape: BoxShape.circle,
+                        border: Border.all(color: kPrimaryRed, width: 4.0),
                       ),
                     ),
-
-                    ///gradient container for clarity of the titleImageUrl
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 16.0),
-                      height: 130.0,
-                      width: 130.0,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            colors: [
-                              Colors.black87,
-                              Colors.black45,
-                              Colors.transparent,
-                            ],
-
-                            ///end of the gradient
-                            stops: [
-                              0,
-                              0.25,
-                              1
-                            ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter),
-                        shape: BoxShape.circle,
-                        border: Border.all(color: contents.color, width: 4.0),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      child: SizedBox(
-                        height: 60,
-                        child: Image.asset(contents.titleImageUrl),
-                      ),
-                    )
-                  ],
-                ),
-              );
-            },
+                  ),
+                );
+              },
+            ),
           ),
-        )
-      ],
+        ],
+      ),
     );
   }
 }

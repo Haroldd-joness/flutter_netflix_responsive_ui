@@ -36,27 +36,6 @@ class CustomAppBar extends StatelessWidget {
   }
 }
 
-///users
-class UserAppBar extends StatelessWidget {
-  const UserAppBar({Key key}) : super(key: key);
-  static const edit = "Edit profiles";
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 24.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          GestureDetector(
-            onTap: () => print('Edit clicked'),
-            child: Text(edit, style: kAppBarText),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class _AppBarButton extends StatelessWidget {
   final String title;
   final Function onTap;
