@@ -99,25 +99,27 @@ class OnBoardingScreen extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 150),
-                        height: height * (0.027),
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: contents.length,
-                            itemBuilder: (context, int i) {
-                              return Padding(
-                                padding: const EdgeInsets.all(6),
-                                child: Container(
-                                  width: 10,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: index == i
-                                          ? kPrimaryRed
-                                          : Colors.white60),
-                                ),
-                              );
-                            }),
+                      Center(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 150),
+                          height: height * (0.033),
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: contents.length,
+                              itemBuilder: (context, int i) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: Container(
+                                    width: 10,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: index == i
+                                            ? kPrimaryRed
+                                            : Colors.white60),
+                                  ),
+                                );
+                              }),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(20),

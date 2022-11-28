@@ -4,6 +4,8 @@ import 'package:netflix_clone/data/data.dart';
 import 'package:netflix_clone/widgets/widgets.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
+import '../widgets/top_Content.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key key,
@@ -45,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List upComing = [];
   List nowPlaying = [];
   List previews = [];
+  List streaming = [];
 
   ///fetches data from the tmdb api
   fetchMovies() async {
@@ -61,6 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Map upComingResult = await tmdbWithCustomLogs.v3.movies.getUpcoming();
     Map nowPlayingResult = await tmdbWithCustomLogs.v3.movies.getNowPlaying();
     Map previewResult = await tmdbWithCustomLogs.v3.tv.getPopular();
+    Map streamResult = await tmdbWithCustomLogs.v3.movies.getNowPlaying();
 
     ///setting state of movies(collection)
     setState(() {
@@ -70,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
       upComing = upComingResult['results'];
       nowPlaying = nowPlayingResult['results'];
       previews = previewResult['results'];
+      streaming = streamResult['results'];
     });
 
     ///test print
@@ -100,8 +105,8 @@ class _HomeScreenState extends State<HomeScreen> {
         controller: _scrollController,
         slivers: [
           SliverToBoxAdapter(
-            child: ContentHeader(
-              featuredContent: sintelContent,
+            child: NowStreaming(
+              nowStreaming: streaming,
             ),
           ),
 

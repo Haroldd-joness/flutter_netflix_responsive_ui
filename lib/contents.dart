@@ -15,9 +15,9 @@ List<OnBoardContents> contents = [
   OnBoardContents(
     title: 'Trying to join Netflix',
     description:
-        'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing'
+        'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing '
         'int, and publishing.',
-    image: 'assets/images/.png',
+    image: 'assets/images/no.png',
     color: Colors.black,
   ),
   OnBoardContents(
