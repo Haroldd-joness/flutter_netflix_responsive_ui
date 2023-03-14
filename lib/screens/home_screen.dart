@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
-import 'package:netflix_clone/data/data.dart';
+
+import 'package:netflix_clone/screens/on_boarding.dart';
 import 'package:netflix_clone/widgets/widgets.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
+import '../networks/internet_connection.dart';
 import '../widgets/top_Content.dart';
 
 class HomeScreen extends StatefulWidget {

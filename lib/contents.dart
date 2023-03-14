@@ -17,7 +17,8 @@ List<OnBoardContents> contents = [
     description:
         'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing '
         'int, and publishing.',
-    image: 'assets/images/no.png',
+    
+    
     color: Colors.black,
   ),
   OnBoardContents(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/constants/constants.dart';
 import 'package:netflix_clone/screens/description.dart';
-import 'package:animated_page_transition/animated_page_transition.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class TrendingMovies extends StatelessWidget {

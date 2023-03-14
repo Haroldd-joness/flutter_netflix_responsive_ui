@@ -37,6 +37,7 @@ dependencies:
   google_fonts: ^3.0.1
   shimmer_animation: ^2.1.0+1
   modal_bottom_sheet: ^2.1.2
+  connectivity_plus: ^2.3.9
 
 dev_dependencies:
   flutter_test:

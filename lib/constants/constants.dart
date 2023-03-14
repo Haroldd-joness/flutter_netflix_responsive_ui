@@ -32,7 +32,8 @@ const kOnBoardText = TextStyle(
     color: Colors.white70,
     letterSpacing: 0.5,
     fontFamily: "Montserrat-bold",
-    height: 1.5);
+    height: 1.5
+  );
 
 const kOnBoardHead = TextStyle(
   fontSize: 29.0,
